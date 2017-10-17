@@ -69,7 +69,7 @@ PIP := $(shell command -v $(PIP_CMD) 2> /dev/null)
 $(VIRTUALENV_BIN)/pip: .ensure-virtualenv
 	$(VIRTUALENV_CMD) $(VIRTUALENV_DIR)
 
-$(VIRTUALENV_UPTODATE): $(VIRTUALENV_BIN)/pip
+$(VIRTUALENV_UPTODATE): $(VIRTUALENV_BIN)/pip docker/requirements.txt
 	$(VIRTUALENV_BIN)/pip install \
 		-r docker/requirements.txt
 	touch $(VIRTUALENV_UPTODATE)
